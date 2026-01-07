@@ -1,11 +1,14 @@
 import { StyleSheet, View } from "react-native";
 import IntroScreen from "./screens/IntroScreen";
+import { SafeAreaView } from "react-native-safe-area-context";
+import ProfileScreen from "./screens/ProfileScreen";
 
 export default function App() {
   return (
-    <>
-      <IntroScreen />
-    </>
+    <SafeAreaView>
+      {/* <IntroScreen /> */}
+      <ProfileScreen />
+    </SafeAreaView>
   );
 }
 
