@@ -8,15 +8,7 @@ import Svg, {
   SvgProps,
 } from "react-native-svg";
 const SunIcon = (props: SvgProps) => (
-  <Svg
-    width={197}
-    height={200}
-    viewBox="0 0 197 200"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    xmlnsXlink="http://www.w3.org/1999/xlink"
-    {...props}
-  >
+  <Svg width={197} height={200} viewBox="0 0 197 200" fill="none" {...props}>
     <Rect width={197} height={200} fill="url(#pattern0_4_210)" />
     <Defs>
       <Pattern
