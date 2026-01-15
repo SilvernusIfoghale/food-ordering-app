@@ -1,13 +1,27 @@
 import { Dimensions, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { useRef } from "react";
 import { s, vs } from "react-native-size-matters";
 import MainCardDetails from "../src/assets/MainCardDetails";
+import LottieView from "lottie-react-native";
 
 const PHONE_WIDTH = Dimensions.get("window").width;
 const BankCardDetails = () => {
+  const animation = useRef<LottieView>(null);
+  // useEffect(() => {
+  // animation.current?.play();
+  // }, []);
   return (
     <View style={styles.container}>
-      <MainCardDetails />
+      {/* <MainCardDetails /> */}
+      <LottieView
+        autoPlay
+        ref={animation}
+        style={{
+          width: 200,
+          height: 200,
+        }}
+        source={require("../assets/CreditCard.json")}
+      />
       <Text style={styles.titleText}>No master card added</Text>
       <Text style={styles.descriptionText}>
         You can add a mastercard and save it for later

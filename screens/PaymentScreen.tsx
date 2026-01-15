@@ -10,6 +10,7 @@ import {
   VisaIcon,
 } from "../src/assets/Icons";
 import BankCardDetails from "../components/BankCardDetails";
+import AntDesign from "@expo/vector-icons/AntDesign";
 
 const PaymentScreen = () => {
   const cardDetails = [
@@ -19,10 +20,12 @@ const PaymentScreen = () => {
     { id: 4, name: "PayPal", icon: <PayPalIcon /> },
   ];
   const [selectedCard, setSelectedCard] = useState("");
+
   return (
     <View>
       <View style={styles.nav}>
         <BackButton />
+
         <Text style={styles.navText}>Payment</Text>
       </View>
       <View>
@@ -48,6 +51,7 @@ const PaymentScreen = () => {
       {/* Add new button  */}
       <View>
         <Pressable style={styles.addButton}>
+          <AntDesign name="plus" size={18} color="#FF7622" />
           <Text style={styles.addText}>ADD NEW</Text>
         </Pressable>
       </View>
@@ -86,6 +90,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffffff",
     width: s(327),
     height: vs(45),
+    flexDirection: "row",
+    gap: 5,
     justifyContent: "center",
     alignItems: "center",
     marginHorizontal: "auto",
