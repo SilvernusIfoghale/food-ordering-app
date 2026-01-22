@@ -4,18 +4,21 @@ import UserAvatar from "../components/UserAvatar";
 import BackButton from "../components/BackButton";
 import { s } from "react-native-size-matters";
 import ContactUs from "../components/ContactUs";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const ProfileScreen = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.topContent}>
-        <BackButton />
-        <UserAvatar />
+    <SafeAreaView>
+      <View style={styles.container}>
+        <View style={styles.topContent}>
+          <BackButton />
+          <UserAvatar />
+        </View>
+        <View>
+          <ContactUs />
+        </View>
       </View>
-      <View>
-        <ContactUs />
-      </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

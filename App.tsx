@@ -1,19 +1,10 @@
-import { StyleSheet, View } from "react-native";
-import IntroScreen from "./screens/IntroScreen";
-import { SafeAreaView } from "react-native-safe-area-context";
-import ProfileScreen from "./screens/ProfileScreen";
-import HomeScreen from "./screens/HomeScreen";
-import PaymentScreen from "./screens/PaymentScreen";
+import { NavigationContainer } from "@react-navigation/native";
+import MainStackNavigation from "./navigation/MainStackNavigation";
 
 export default function App() {
   return (
-    <SafeAreaView>
-      {/* <IntroScreen /> */}
-      {/* <ProfileScreen /> */}
-      {/* <HomeScreen /> */}
-      <PaymentScreen />
-    </SafeAreaView>
+    <NavigationContainer>
+      <MainStackNavigation />
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({});

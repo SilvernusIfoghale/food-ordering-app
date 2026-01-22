@@ -1,14 +1,7 @@
 import * as React from "react";
 import Svg, { Path, Circle, Rect, SvgProps } from "react-native-svg";
 const FoodLogo = (props: SvgProps) => (
-  <Svg
-    width={122}
-    height={59}
-    viewBox="0 0 122 59"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <Svg width={122} height={59} viewBox="0 0 122 59" fill="none" {...props}>
     <Path
       d="M4.07071 56.1656C6.40538 56.1656 8.08155 54.3697 8.08155 52.035V40.4215H19.5155C21.6107 40.4215 23.227 38.865 23.227 36.7698C23.227 34.7345 21.6705 33.1182 19.5155 33.1182H8.08155V23.2407H22.7481C24.8433 23.2407 26.4596 21.6244 26.4596 19.589C26.4596 17.4938 24.9032 15.9374 22.7481 15.9374H4.13057C1.73604 15.9374 0 17.6734 0 20.0679V52.035C0 54.3697 1.67617 56.1656 4.07071 56.1656Z"
       fill="#181C2E"

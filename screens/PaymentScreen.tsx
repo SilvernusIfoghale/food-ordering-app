@@ -11,6 +11,7 @@ import {
 } from "../src/assets/Icons";
 import BankCardDetails from "../components/BankCardDetails";
 import AntDesign from "@expo/vector-icons/AntDesign";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const PaymentScreen = () => {
   const cardDetails = [
@@ -22,51 +23,53 @@ const PaymentScreen = () => {
   const [selectedCard, setSelectedCard] = useState("");
 
   return (
-    <View>
-      <View style={styles.nav}>
-        <BackButton />
+    <SafeAreaView>
+      <View>
+        <View style={styles.nav}>
+          <BackButton />
 
-        <Text style={styles.navText}>Payment</Text>
+          <Text style={styles.navText}>Payment</Text>
+        </View>
+        <View>
+          <FlatList
+            data={cardDetails}
+            renderItem={({ item }) => (
+              <PaymentCard
+                isSelected={selectedCard === item.name}
+                name={item.name}
+                icon={item.icon}
+                onPress={() => setSelectedCard(item.name)}
+              />
+            )}
+            keyExtractor={(item) => item.id.toString()}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{ gap: s(14), padding: s(16) }}
+          />
+        </View>
+        <View>
+          <BankCardDetails />
+        </View>
+        {/* Add new button  */}
+        <View>
+          <Pressable style={styles.addButton}>
+            <AntDesign name="plus" size={18} color="#FF7622" />
+            <Text style={styles.addText}>ADD NEW</Text>
+          </Pressable>
+        </View>
+        {/* total  */}
+        <View style={styles.totalContainer}>
+          <Text style={styles.totalText}>TOTAL:</Text>
+          <Text style={styles.totalPriceText}>$96</Text>
+        </View>
+        {/* Pay & confirm button  */}
+        <View>
+          <Pressable style={styles.payButton}>
+            <Text style={styles.payText}>PAY & CONFIRM</Text>
+          </Pressable>
+        </View>
       </View>
-      <View>
-        <FlatList
-          data={cardDetails}
-          renderItem={({ item }) => (
-            <PaymentCard
-              isSelected={selectedCard === item.name}
-              name={item.name}
-              icon={item.icon}
-              onPress={() => setSelectedCard(item.name)}
-            />
-          )}
-          keyExtractor={(item) => item.id.toString()}
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={{ gap: s(14), padding: s(16) }}
-        />
-      </View>
-      <View>
-        <BankCardDetails />
-      </View>
-      {/* Add new button  */}
-      <View>
-        <Pressable style={styles.addButton}>
-          <AntDesign name="plus" size={18} color="#FF7622" />
-          <Text style={styles.addText}>ADD NEW</Text>
-        </Pressable>
-      </View>
-      {/* total  */}
-      <View style={styles.totalContainer}>
-        <Text style={styles.totalText}>TOTAL:</Text>
-        <Text style={styles.totalPriceText}>$96</Text>
-      </View>
-      {/* Pay & confirm button  */}
-      <View>
-        <Pressable style={styles.payButton}>
-          <Text style={styles.payText}>PAY & CONFIRM</Text>
-        </Pressable>
-      </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

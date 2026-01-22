@@ -4,36 +4,44 @@ import { s, vs } from "react-native-size-matters";
 import TopTabs from "../components/TopTabs";
 import MeditationCard from "../components/MeditationCard";
 import { dummyData } from "../data/data";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const HomeScreen = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.topContainer}>
-        <Text style={styles.titleTop}>Meditations</Text>
-        <Text style={styles.titleBottom}>Lorem Ipsum is simply dummy text</Text>
+    <SafeAreaView>
+      <View style={styles.container}>
+        <View style={styles.topContainer}>
+          <Text style={styles.titleTop}>Meditations</Text>
+          <Text style={styles.titleBottom}>
+            Lorem Ipsum is simply dummy text
+          </Text>
+        </View>
+        <View>
+          <TopTabs />
+          <FlatList
+            data={dummyData}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <MeditationCard
+                title={item.title}
+                date={item.date}
+                imageUri={item.image}
+              />
+            )}
+            showsVerticalScrollIndicator={false}
+            numColumns={2}
+            columnWrapperStyle={{
+              justifyContent: "space-between",
+              marginBottom: vs(16),
+            }}
+            contentContainerStyle={{
+              paddingBottom: vs(100),
+              paddingTop: vs(10),
+            }}
+          />
+        </View>
       </View>
-      <View>
-        <TopTabs />
-        <FlatList
-          data={dummyData}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <MeditationCard
-              title={item.title}
-              date={item.date}
-              imageUri={item.image}
-            />
-          )}
-          showsVerticalScrollIndicator={false}
-          numColumns={2}
-          columnWrapperStyle={{
-            justifyContent: "space-between",
-            marginBottom: vs(16),
-          }}
-          contentContainerStyle={{ paddingBottom: vs(100), paddingTop: vs(10) }}
-        />
-      </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
